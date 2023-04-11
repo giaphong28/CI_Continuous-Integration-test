@@ -1,9 +1,9 @@
 name: Build and Test App
 on:
   push: 
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-lastest
@@ -16,8 +16,8 @@ jobs:
     - name: Build the Docker image
       id: build
       run: docker build . --file Dockerfile --tag
-       ${{ secrets.DOCKER_USER  }}/flask-app-gh-actions
+       ${{ secrets.DOCKER_USER  }}/CI_Continuous-Integration-test
     - name: Push the Docker image
       id: push
       run: docker push ${{ secrets.DOCKER_USER  }}
-      /flask-app-gh-actions
+      /CI_Continuous-Integration-test
