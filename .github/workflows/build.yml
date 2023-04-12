@@ -17,4 +17,5 @@ jobs:
       run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/ci_continuous-integration-test
     - name: Push the Docker image
       id: push
-      run: docker push ${{secrets.DOCKER_USER}}/ci_continuous-integration-tests
+      run: docker push ${{secrets.DOCKER_USER}}/ci_continuous-integration-test      
+    - uses: stefanzweifel/git-auto-commit-action@v4
